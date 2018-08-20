@@ -9,7 +9,7 @@ def solve(graph, node, isAdding, lastAction):
         print()
         
     else:
-        #get all possible combinations for moving people between banks
+        #get all possible combinations for moving people between banks for current implementation
         actions = getActions(node, isAdding)
         for action in actions:
             newNode = buildNewNode(node, action, isAdding)
@@ -48,6 +48,7 @@ def buildNewNode(parent, action, isAdding):
     return node
 
 def validState(node, lastAction, currentAction):
+    #to invert bank 2 to bank 1
     localNode = ['unused', 3 - node[1], 3 - node[2], 1]
     if node[2] > node[1] and node[1] > 0:
         return False
